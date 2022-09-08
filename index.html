@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <title>GPS Tracker</title>
       </head>
-      <body onload = "table();" style="background-color:#28282B;">
+      <body onload = "table();" style="background-color:#28282B;"> <!-- Background color en gris oscuro/light black -->
     
         <table border = 1 cellpadding = 10>     <!-- Se genera una tabla (la cual se entregara a index.php) -->
             <tr>                        <!-- Info de las columnas -->
@@ -41,7 +41,7 @@
                 }
                 
                 if(map) {
-                map.invalidateSize();
+                map.invalidateSize(); // Si hay un mapa, lo elimina para recrearlo y que se pueda cambiar actualmente la posición ##
                 }
                 var map = L.map('map');
                 map = L.map('map').setView([data.Latitud, data.Longitud], 16);
@@ -60,7 +60,7 @@
           }
           setInterval(function(){   //creamos un intervalo para realizar el mismo request del archivo que genera la conexión con la base de datos
             table();
-          }, 5000);
+          }, 5000); // Cada 5 segundos
     
         </script>
 
