@@ -13,6 +13,8 @@ function todo() {
       //Mapa
       var container = L.DomUtil.get('map');
 
+
+      //Mapas if
       if (container != null) {
         container._leaflet_id = null;
       }
