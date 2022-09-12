@@ -22,15 +22,17 @@ function todo() {
         map.invalidateSize(); // Si hay un mapa, lo elimina para recrearlo y que se pueda cambiar actualmente la posición ##
       }
 
+      //Declaracion del mapa
       var map = L.map('map');
-
       map = L.map('map').setView([data.Latitud, data.Longitud], 16);
 
+      //Estilo del mapa
       var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://gpstracker.sytes.net/">GPS Tracker</a>'
       }).addTo(map);
 
+      //Marcador
       var marker = L.marker([data.Latitud, data.Longitud]).addTo(map)
         .bindPopup('<b>' + data.Fecha + '</b>' + '<br />' + data.Latitud + ' ' + data.Longitud).openPopup();
     }
@@ -38,6 +40,8 @@ function todo() {
     xhttp.open("GET", "datadb.php");  // documento que estamos llamando
     xhttp.send();
   }
+
+  
 
   //Funcion para el delay
   setInterval(
