@@ -1,5 +1,6 @@
 <?php
-$conn = mysqli_connect("desing.cwpobsmp7w7k.us-east-1.rds.amazonaws.com", $_ENV["BUSER"], "Neverland21", "Gps");  // Establece conexi�n
+$User= getenv('BUSER');
+$conn = mysqli_connect("desing.cwpobsmp7w7k.us-east-1.rds.amazonaws.com",$User, "Neverland21", "Gps");  // Establece conexi�n
 $rows = mysqli_query($conn, "SELECT * FROM Gps.db ORDER BY Fecha DESC LIMIT 1"); // genera el query a SQL
 $fila = mysqli_fetch_assoc($rows);
 echo json_encode($fila);
