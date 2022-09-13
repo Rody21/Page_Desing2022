@@ -31,7 +31,7 @@ function todo() {
       //Estilo del mapa
       var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: '&copy; <a href="http://gpstracker.sytes.net/">GPS Tracker</a>'
+        attribution: '&copy; <a href="http://ddnsdesign.ddns.net/">GPS Tracker</a>'
       }).addTo(map);
 
       //Marcador
