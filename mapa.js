@@ -1,4 +1,6 @@
 function todo() {
+
+  const xhttp = new XMLHttpRequest();  //creando el objeto para trabajar
   xhttp.onload = function () {
     var data = this.responseText
     data = JSON.parse(data);
@@ -26,20 +28,12 @@ function todo() {
 
     //Estilo del mapa
     var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-  }
-  function table() {
-    const xhttp = new XMLHttpRequest();  //creando el objeto para trabajar
-
-
-
-
-    //Marcador
-    var marker = L.marker([data.Latitud, data.Longitud]).addTo(map)
-      .bindPopup('<b>' + data.Fecha + '</b>' + '<br />' + data.Latitud + ' ' + data.Longitud).openPopup();
-
-    map.on('click', onMapClick);
-
+    
+    function table() {
+      //Marcador
+      var marker = L.marker([data.Latitud, data.Longitud]).addTo(map)
+        .bindPopup('<b>' + data.Fecha + '</b>' + '<br />' + data.Latitud + ' ' + data.Longitud).openPopup();
+    }
 
     xhttp.open("GET", "datadb.php");  // documento que estamos llamando
     xhttp.send();
