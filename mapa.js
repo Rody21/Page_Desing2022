@@ -42,7 +42,5 @@ function todo() {
 
     table()
     setInterval(table, 3000)
-
   }
-
 }
