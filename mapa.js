@@ -30,21 +30,21 @@ function todo() {
     //Estilo del mapa
     var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-    
+
   }
 
   function table() {
-    
+    const xhttp = new XMLHttpRequest();  //creando el objeto para trabajar
     xhttp.onload = function () {
       var data = this.responseText
       data = JSON.parse(data);
-  
+
       document.getElementById("lat").innerHTML = data.Latitud
       document.getElementById("lng").innerHTML = data.Longitud
       document.getElementById("date").innerHTML = data.Fecha
-    //Marcador
-    var marker = L.marker([data.Latitud, data.Longitud]).addTo(map)
-      .bindPopup('<b>' + data.Fecha + '</b>' + '<br />' + data.Latitud + ' ' + data.Longitud).openPopup();
+      //Marcador
+      var marker = L.marker([data.Latitud, data.Longitud]).addTo(map)
+        .bindPopup('<b>' + data.Fecha + '</b>' + '<br />' + data.Latitud + ' ' + data.Longitud).openPopup();
     }
 
     xhttp.open("GET", "datadb.php");  // documento que estamos llamando
@@ -52,9 +52,9 @@ function todo() {
   }
 
 
-//Funcion para el delay
-setInterval(
-  function () {   //creamos un intervalo para realizar el mismo request del archivo que genera la conexión con la base de datos
-    table();
-  }, 5000); // Cada 5 segundos
+  //Funcion para el delay
+  setInterval(
+    function () {   //creamos un intervalo para realizar el mismo request del archivo que genera la conexión con la base de datos
+      table();
+    }, 5000); // Cada 5 segundos
 }
