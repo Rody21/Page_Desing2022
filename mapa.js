@@ -3,7 +3,7 @@ function todo() {
   function table() {
     const xhttp = new XMLHttpRequest();  //creando el objeto para trabajar
 
-    xhttp.onload = function () {
+    xhttp.onload = function() {
       var data = this.responseText
       data = JSON.parse(data);
       document.getElementById("lat").innerHTML = data.Latitud
@@ -11,8 +11,7 @@ function todo() {
       document.getElementById("date").innerHTML = data.Fecha
 
       //Mapa
-      var container = L.DomUtil.get('map');
-
+      var container = L.DomUtil.get('map')
 
       //Mapas if
       if (container != null) {
@@ -29,10 +28,7 @@ function todo() {
       map = L.map('map').setView([data.Latitud, data.Longitud], 16);
 
       //Estilo del mapa
-      var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://gpstracker.sytes.net/">GPS Tracker</a>'
-      }).addTo(map);
+      var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
       //Marcador
       var marker = L.marker([data.Latitud, data.Longitud]).addTo(map)
